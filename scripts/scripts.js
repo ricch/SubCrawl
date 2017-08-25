@@ -32,9 +32,11 @@ subcrawlApp.getYelpData = function(lat,long) { // <-- pushing in two parameters 
 
 //////////////////////////////////////////////////////////////////
 
-subcrawlApp.displayRestaurants = function(restaurantData) { // <-- START DISPLAY RESTAURANTS
+subcrawlApp.displayRestaurants = function(restaurantData, stationName) { // <-- START DISPLAY RESTAURANTS
   console.log(restaurantData);
 
+  var stationContainer = $('<div>').addClass(`station ${stationName}`);
+  $(stationContainer).append(`<h1>Bars near ${stationName} station</h1>`); 
   for (i = 0; i <= 2; i++) { // <-- Showing only 3 results
     var busName = restaurantData[i].name;
     var busAddress = restaurantData[i].location.address1;
@@ -47,20 +49,30 @@ subcrawlApp.displayRestaurants = function(restaurantData) { // <-- START DISPLAY
     var busUrl = restaurantData[i].url;
 
     // console.log(busName);
-    $('.results').append(
-      `<div class="result">
-        <h2><a href="${busUrl}" target=_blank>${busName}</a></h2>
-        <p>
-          ${busAddress}<br>
-          ${busPhone}<br>
-          Price - ${busPrice}<br>
-          ${busRating} * (${busNumReviews} reviews)<br>
-          ${busDistance.toFixed(1)} m away
-        </p>
-        <img src="${busImg}" alt="${busName}">
-      </div>`);
+    // $('.image').append(
+    //   `<img src="${busImg}" alt="${busName}">`
+    //   );
+    $(stationContainer).append(`
+      <div class="result">
+      <div class="restaurantImage" style="background-image: url(${busImg});"></div>
+      <div class="restaurantContent">
+      <h2><a href="${busUrl}" target=_blank>${busName}</a></h2>
+      <p>
+        ${busAddress}<br>
+        ${busPhone}<br>
+        Price - ${busPrice}<br>
+        ${busRating} * (${busNumReviews} reviews)<br>
+        ${busDistance.toFixed(1)} m away
+      </p>
+      </div>
+      <a href="tel:${busPhone}"><div class="phoneButton">Call Us</div></a>
+      </div>
+      `);
+
+
     // $('.result').css("background-image", `url(${busImg})`);  
   }
+  $('.content').append(stationContainer);
 }; // <-- END DISPLAY RESTURANTS
 
 //////////////////////////////////////////////////////////////////
@@ -72,7 +84,6 @@ subcrawlApp.events = function() { // <-- a function that handles all events (ie 
     var selectedStartStn = $('.starting').val();
     var selectedEndStn = $('.ending').val();
 
-    $('.results').append(`<h1>Bars near ${selectedStartStn} station</h1>`); 
 
     var startIndex = ttcStations.filter(function(station){ // <-- The filter function creates a new ARRAY based on a condition 
       return selectedStartStn === station.stationName // <-- in this case, we will return when name of selected item's value === name of array's station name
@@ -106,8 +117,10 @@ subcrawlApp.events = function() { // <-- a function that handles all events (ie 
 
         res = res.map(data => data[0]); // <-- MAP function maps over and overwrites an existing ARRAY.
 
-        res.forEach((restaurant) => {
-          subcrawlApp.displayRestaurants(restaurant.businesses); // <-- setting the function to call the data in yelp (passing the baton)
+        console.log(res);
+        res.forEach((restaurant, i) => { // second value of forEACH is always index
+          var stationName = sliced[i].stationName; // <-- this represents the station that corresponds to the restaurant we're currently on inside of the loop
+          subcrawlApp.displayRestaurants(restaurant.businesses, stationName); // <-- setting the function to call the data in yelp (passing the baton)
         })
       });  
     console.log(`You are going through ${subcrawlLength} subway stops`)

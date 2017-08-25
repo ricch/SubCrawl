@@ -2,11 +2,13 @@
 	.flex {
 		flex-direction: row;
 		justify-content: space-between;
+		align-items: center;
 		@include respond-to('small') {
 			flex-direction: column;
 		}
 	}
-	.fa-4x {
+	.fa-5x {
+		color: #777;
 		@include respond-to('small') {
 			font-size: 2.4rem;
 		}
@@ -38,19 +40,19 @@
 		}
 	}
 	.startingStation {
-		text-align: left;
+		text-align: center;
 		@include respond-to('small') {
 			text-align: center;
 		}
 	}
 	.endingStation {
-		text-align: right;
+		text-align: center;
 		@include respond-to('small') {
 			text-align: center;
 		}
 		.fa {}
 		select {
-			float: right;
+			// float: right;
 			@include respond-to('small') {
 				float: none;
 			}
@@ -73,8 +75,8 @@
 		transition: .3s all;
 		&:hover {
 			background: darken($primaryColor, 10);
-			box-shadow: 0 2px 4px rgba(0,0,0,.5);
-			// transform: scale(1.05);
+			// box-shadow: 0 2px 4px rgba(0,0,0,.5);
+			transform: scale(1.05);
 		}
 	}
 }

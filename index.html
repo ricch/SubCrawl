@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="styles/styles.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script src="scripts/scripts.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -23,7 +24,7 @@
 	</nav>
 	<div class="flex">
 		<h1>
-			<img src="images/logoSubcrawl.png" alt="Subcrawl App">
+			<img src="images/logoSubcrawl.png" alt="Subcrawl App animated">
 		</h1>
 
 		<main class="stationSelector">
@@ -31,7 +32,7 @@
 				<form class="subway-form">
 					<div class="flex">
 						<div class="startingStation">
-							<i class="fa fa-flag-o fa-4x" aria-hidden="true"></i>
+							<i class="fa fa-flag-o fa-5x" aria-hidden="true"></i>
 							<h2>Enter STARTING station:</h2>
 								<select class="starting">
 									<option value="Downsview">Downsview</option>
@@ -70,8 +71,12 @@
 								<!-- <input type="submit" value="Submit"> -->
 						</div>
 
+						<div>	
+							<img src="images/subwayLineYellow.png" alt="">
+						</div>
+
 						<div class="endingStation">
-							<i class="fa fa-flag-checkered fa-4x" aria-hidden="true"></i>
+							<i class="fa fa-flag-checkered fa-5x" aria-hidden="true"></i>
 							<h2>Enter ENDING station:</h2>
 
 								<select class="ending">
@@ -158,6 +163,8 @@
 
 <section class="resultsNearStation">
 	<div class="results">
+		<!-- <div class="image"></div> -->
+		<div class="content clearfix"></div>
 	</div>
 </section>
 
