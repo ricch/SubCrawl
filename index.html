@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sub Crawl</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+	<script src="https://use.fontawesome.com/be7cb9fabf.js"></script>
+	<link rel="stylesheet" href="styles/styles.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="scripts/scripts.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header>
+	<nav>
+		<div class="wrapper clearfix">
+			<ul>
+				<li><a href="">Instructions</a></li>
+				<li><a href="">Disclaimer</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="flex">
+		<h1>
+			<img src="images/logoSubcrawl.png" alt="Subcrawl App">
+		</h1>
+
+		<main class="stationSelector">
+			<div class="wrapper">
+				<form class="subway-form">
+					<div class="flex">
+						<div class="startingStation">
+							<i class="fa fa-flag-o fa-4x" aria-hidden="true"></i>
+							<h2>Enter STARTING station:</h2>
+								<select class="starting">
+									<option value="Downsview">Downsview</option>
+									<option value="Wilson">Wilson</option>
+									<option value="Yorkdale">Yorkdale</option>
+									<option value="LawrenceW">Lawrence West</option>
+									<option value="Glencairn">Glencairn</option>
+									<option value="EglintonW">Eglinton West</option>
+									<option value="StClairW">St Clair West</option>
+									<option value="Dupont">Dupont</option>
+									<option value="Spadina">Spadina</option>
+									<option value="StGeorge">St George</option>
+									<option value="Museum">Museum</option>
+									<option value="QueensPark">Queen's Park</option>
+									<option value="StPatrick">St Patrick</option>
+									<option value="Osgoode">Osgoode</option>
+									<option value="StAndrew">St Andrew</option>
+									<option value="Union">Union</option>
+									<option value="King">King</option>
+									<option value="Queen">Queen</option>
+									<option value="Dundas">Dundas</option>
+									<option value="College">College</option>
+									<option value="Wellesley">Wellesley</option>
+									<option value="Bloor">Bloor</option>
+									<option value="Rosedale">Rosedale</option>
+									<option value="Summerhill">Summerhill</option>
+									<option value="StClair">St Clair</option>
+									<option value="Davisville">Davisville</option>
+									<option value="Eglinton">Eglinton</option>
+									<option value="Lawrence">Lawrence</option>
+									<option value="YorkMills">York Mills</option>
+									<option value="Sheppard">Sheppard</option>
+									<option value="NorthYorkCentre">North York Centre</option>
+									<option value="Finch">Finch</option>
+								</select>
+								<!-- <input type="submit" value="Submit"> -->
+						</div>
+
+						<div class="endingStation">
+							<i class="fa fa-flag-checkered fa-4x" aria-hidden="true"></i>
+							<h2>Enter ENDING station:</h2>
+
+								<select class="ending">
+									<option value="Downsview">Downsview</option>
+									<option value="Wilson">Wilson</option>
+									<option value="Yorkdale">Yorkdale</option>
+									<option value="LawrenceW">Lawrence West</option>
+									<option value="Glencairn">Glencairn</option>
+									<option value="EglintonW">Eglinton West</option>
+									<option value="StClairW">St Clair West</option>
+									<option value="Dupont">Dupont</option>
+									<option value="Spadina">Spadina</option>
+									<option value="StGeorge">St George</option>
+									<option value="Museum">Museum</option>
+									<option value="QueensPark">Queen's Park</option>
+									<option value="StPatrick">St Patrick</option>
+									<option value="Osgoode">Osgoode</option>
+									<option value="StAndrew">St Andrew</option>
+									<option value="Union">Union</option>
+									<option value="King">King</option>
+									<option value="Queen">Queen</option>
+									<option value="Dundas">Dundas</option>
+									<option value="College">College</option>
+									<option value="Wellesley">Wellesley</option>
+									<option value="Bloor">Bloor</option>
+									<option value="Rosedale">Rosedale</option>
+									<option value="Summerhill">Summerhill</option>
+									<option value="StClair">St Clair</option>
+									<option value="Davisville">Davisville</option>
+									<option value="Eglinton">Eglinton</option>
+									<option value="Lawrence">Lawrence</option>
+									<option value="YorkMills">York Mills</option>
+									<option value="Sheppard">Sheppard</option>
+									<option value="NorthYorkCentre">North York Centre</option>
+									<option value="Finch">Finch</option>
+								</select>
+						</div>
+					</div>
+					<div class="submitBtn">
+						<input type="submit" value="Submit">
+					</div>
+				</form>
+			</div>
+		</main>
+	</div>
+</header>
+
+<!-- <section class="querySelectors">
+	<div class="wrapper">
+		<div>
+			<form>
+				<select>
+					<option value="dollarOne">$</option>
+					<option value="dollarTwo">$$</option>
+					<option value="dollarThree">$$$</option>
+					<option value="dollarFour">$$$$</option>
+				</select>
+			</form>
+		</div>
+		<div>
+			<form>
+				<select>
+					<option value="star1">1 Star</option>
+					<option value="star15">1.5 Star</option>
+					<option value="star2">2 Star</option>
+					<option value="star25">2.5 Star</option>
+					<option value="star3">3 Star</option>
+					<option value="star35">3.5 Star</option>
+					<option value="star4">4 Star</option>
+					<option value="star45">4.5 Star</option>
+					<option value="star5">5 Star</option>
+				</select>
+			</form>
+		</div>
+		<div>
+			<i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
+			<i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
+			<i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
+			<i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
+			<i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
+		</div>
+	</div>
+</section> -->
+
+<section class="resultsNearStation">
+	<div class="results">
+	</div>
+</section>
+
+<footer>
+	
+</footer>
+		
+</body>
+</html>

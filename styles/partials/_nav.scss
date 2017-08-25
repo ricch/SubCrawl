@@ -1,0 +1,39 @@
+nav {
+	background-color: #fff;
+	border-top: 6px solid $primaryColor;
+	border-bottom: 1px solid #ddd;
+	box-shadow: 4px 0 10px #222;
+	margin-bottom: 10px;
+	position: absolute;;
+	width: 100%;
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		float: right;
+		@include respond-to('small') {
+			float: none;
+			text-align: center;
+			margin: 0 auto;
+		}
+		li {
+			float: left;
+			margin: 10px 20px;
+			font-size: 1.8rem;
+			@include respond-to('small') {
+				float: none;
+				display: inline-block;
+			}
+			a {
+				color: #333;
+				padding-bottom: 6px;
+				&:hover {
+					color: $primaryColor;
+					border-bottom: 5px solid $primaryColor;
+					
+				}
+			}
+			
+		}
+	}
+}

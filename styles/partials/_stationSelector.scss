@@ -1,0 +1,80 @@
+.stationSelector {
+	.flex {
+		flex-direction: row;
+		justify-content: space-between;
+		@include respond-to('small') {
+			flex-direction: column;
+		}
+	}
+	.fa-4x {
+		@include respond-to('small') {
+			font-size: 2.4rem;
+		}
+	}
+	h2 {
+		font-weight: 700;
+		font-size: 2.4rem;
+		@include respond-to('small') {
+			font-size: 1.8rem;
+		}
+	}
+	select {
+		background-image: none;
+		padding: 15px;
+		font-size: 1.6rem;
+		border: 1px solid #bbb;
+		color: #333;
+		background-color: #ddd;
+		font-family: $primaryFont;
+		font-weight: 300;
+		transition: .3s all;
+		@include respond-to('small') {
+			font-size: 1.3rem;
+			padding: 8px;
+			margin: 5px auto 10px;
+		}
+		&:hover {
+			background-color: #eee;
+		}
+	}
+	.startingStation {
+		text-align: left;
+		@include respond-to('small') {
+			text-align: center;
+		}
+	}
+	.endingStation {
+		text-align: right;
+		@include respond-to('small') {
+			text-align: center;
+		}
+		.fa {}
+		select {
+			float: right;
+			@include respond-to('small') {
+				float: none;
+			}
+		}
+	}
+}
+
+.submitBtn {
+	text-align: center;
+	input {
+		border-radius: 5px;
+		padding: 15px 30px;
+		font-size: 20px;
+		background-color: $primaryColor;
+		color:#fff;
+		font-weight: 300;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		border: none;
+		transition: .3s all;
+		&:hover {
+			background: darken($primaryColor, 10);
+			box-shadow: 0 2px 4px rgba(0,0,0,.5);
+			// transform: scale(1.05);
+		}
+	}
+}

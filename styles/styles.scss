@@ -1,0 +1,17 @@
+@import "partials/setup";
+@import "partials/variables";
+
+// 
+@import "partials/mixins";
+@import "partials/global";
+@import "partials/buttons";
+
+// Semantic Structure
+@import "partials/nav";
+@import "partials/header";
+@import "partials/footer";
+
+// Pages
+@import "partials/stationSelector.scss";
+@import "partials/querySelector.scss";
+@import "partials/results.scss";

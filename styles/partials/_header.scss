@@ -1,0 +1,16 @@
+header {
+	position: relative;
+	.flex {
+		flex-direction: column;
+		justify-content: center;
+		height: calc(100%);
+	}
+	h1 {text-align: center;}
+	background-image: url(../../images/bgAlcohol.png);
+	height: 100vh;
+	img {
+		@include respond-to('medium') {
+			max-width: 30%;
+		}
+	}
+}
