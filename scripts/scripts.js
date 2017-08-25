@@ -36,7 +36,10 @@ subcrawlApp.displayRestaurants = function(restaurantData, stationName) { // <-- 
   console.log(restaurantData);
 
   var stationContainer = $('<div>').addClass(`station ${stationName}`);
-  $(stationContainer).append(`<h1>Bars near ${stationName} station</h1>`); 
+  $(stationContainer).append(`
+    <div class="ttcLogo"><img src="images/logoTTC.png" alt="Toronto Transit Commission"></div>
+    <h1>Bars near ${stationName} Station</h1>
+    `); 
   for (i = 0; i <= 2; i++) { // <-- Showing only 3 results
     var busName = restaurantData[i].name;
     var busAddress = restaurantData[i].location.address1;
@@ -48,24 +51,44 @@ subcrawlApp.displayRestaurants = function(restaurantData, stationName) { // <-- 
     var busImg = restaurantData[i].image_url;
     var busUrl = restaurantData[i].url;
 
+    if (busRating === 1){
+      busRating = '<i class="fa fa-star" aria-hidden="true"></i>';
+    } else if (busRating === 2){
+      busRating = '<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>';
+    } else if (busRating === 3){
+      busRating = '<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>';
+    } else if (busRating === 4){
+      busRating = '<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>';
+    } else if (busRating === 5){
+      busRating = '<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>';
+    } else if (busRating === 1.5){
+      busRating = '<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i>';
+    } else if (busRating === 2.5){
+      busRating = '<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i>';
+    } else if (busRating === 3.5){
+      busRating = '<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i>';
+    } else if (busRating === 4.5){
+      busRating = '<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i>';
+    } 
+
     // console.log(busName);
     // $('.image').append(
     //   `<img src="${busImg}" alt="${busName}">`
     //   );
     $(stationContainer).append(`
       <div class="result">
-      <div class="restaurantImage" style="background-image: url(${busImg});"></div>
+      <a href="${busUrl}" target=_blank><div class="restaurantImage" style="background-image: url(${busImg});"></div></a>
       <div class="restaurantContent">
       <h2><a href="${busUrl}" target=_blank>${busName}</a></h2>
       <p>
         ${busAddress}<br>
         ${busPhone}<br>
         Price - ${busPrice}<br>
-        ${busRating} * (${busNumReviews} reviews)<br>
+        ${busRating} (${busNumReviews} reviews)<br>
         ${busDistance.toFixed(1)} m away
       </p>
       </div>
-      <a href="tel:${busPhone}"><div class="phoneButton">Call Us</div></a>
+      <a href="tel:${busPhone}" class="mobileShow"><div class="phoneButton">Call Us</div></a>
       </div>
       `);
 
@@ -81,6 +104,7 @@ subcrawlApp.events = function() { // <-- a function that handles all events (ie 
   
   $('.subway-form').on('submit', function(e) { // <-- when the 'submit' button is clicked ... do these steps
     e.preventDefault(); // <-- resets the forms
+    $('.content').empty();
     var selectedStartStn = $('.starting').val();
     var selectedEndStn = $('.ending').val();
 
