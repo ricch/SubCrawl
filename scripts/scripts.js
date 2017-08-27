@@ -80,12 +80,12 @@ subcrawlApp.displayRestaurants = function(restaurantData, stationName) { // <-- 
       <a href="${busUrl}" target=_blank><div class="restaurantImage" style="background-image: url(${busImg});"></div></a>
       <div class="restaurantContent">
       <h2><a href="${busUrl}" target=_blank>${busName}</a></h2>
-      <p>
-        ${busAddress}<br>
-        ${busPhone}<br>
-        Price - ${busPrice}<br>
-        ${busRating} (${busNumReviews} reviews)<br>
-        ${busDistance.toFixed(1)} m away
+      <p class="reviews">${busRating} (${busNumReviews} reviews) - <span class="price">${busPrice}</span></p>
+      <p class="restaurantInfo">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>${busAddress}<br>
+        <i class="fa fa-phone" aria-hidden="true"></i>${busPhone}<br>
+        <i class="fa fa-location-arrow" aria-hidden="true"></i>${busDistance.toFixed(1)} m away<br>
+        <i class="fa fa-globe" aria-hidden="true"></i><a href="${busUrl}" target=_blank>read more on yelp</a><br>
       </p>
       </div>
       <a href="tel:${busPhone}" class="mobileShow"><div class="phoneButton">Call Us</div></a>

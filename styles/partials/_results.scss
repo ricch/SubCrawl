@@ -29,11 +29,14 @@
 			border-top: 15px solid $primaryColor;
 			display: inline-block;
 			width: 100%;
-			padding: 80px 0;
+			padding: 70px 0 50px;
 			// margin: 30px 0;
 			&:nth-child(2n) {
 				background-color: #fff;
 				// margin: 30px 0;
+			}
+			@include respond-to('small') {
+				padding: 40px 0;
 			}
 		}
 		.result {
@@ -44,6 +47,12 @@
 			min-height: 420px;
 			border: 1px solid #ddd;
 			transition: .3s all;
+			@include respond-to('small') {
+				width: 90%;
+				margin: 20px auto;
+				float: none;
+				min-height: 300px;
+			}
 			&:hover {
 				box-shadow: 0 6px 8px #a3a3a3;
 				transform: scale(1.008);
@@ -51,14 +60,14 @@
 			h2 {
 				font-weight: 300;
 				font-size: 3rem;
+				@include respond-to('small') {
+					font-size: 2.4rem;
+				}
 				a{
 				}
 			}
 			p {
 				line-height: 1.2;
-			}
-			@include respond-to('small') {
-				width: 100%;
 			}
 			img {
 				max-height: 100%;
@@ -70,14 +79,35 @@
 				background-size: cover;
 				height: 200px;
 				background-position: center center;
-				margin: 15px 15px 35px;
+				margin: 15px 15px 25px;
+				@include respond-to('small') {
+					height: 150px;
+					margin-bottom: 15px;
+				}
 			}
 			.restaurantContent {
 				margin: 15px;
 			}
+			.restaurantInfo {
+				color: #666;
+				.fa {
+					color: #bbb;
+					margin-right: 20px;
+					margin-left: 10px;
+				}
+				a {
+					font-style: italic;
+				}
+			}
+			.reviews {
+				margin: 5px 0;
+				.price {
+					font-style: italic;
+				}
+			}
 			.phoneButton {
 				background-color: #f8f8f8;
-				padding: 20px;
+				padding: 15px;
 				color: #333;
 				font-size: 3rem;
 				text-align: center;
