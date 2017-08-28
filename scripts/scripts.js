@@ -32,7 +32,7 @@ subcrawlApp.getYelpData = function(lat,long) { // <-- pushing in two parameters 
             // categories: "bars",
             limit: 5,
             // price: "1, 2, 3",
-            open_now: true,
+            // open_now: true,
             sort_by: "distance"
           },
           proxyHeaders: {
@@ -148,8 +148,12 @@ subcrawlApp.events = function() { // <-- a function that handles all events (ie 
       var sliced = ttcStations.slice(indexOfStart, indexOfEnd); // <-- sliced array and ALL the data
       console.log(sliced);
     } else if (indexOfStart > indexOfEnd){
+      indexOfStart = indexOfStart + 1;
+      indexOfEnd = indexOfEnd - 1;
       var sliced = ttcStations.slice(indexOfEnd, indexOfStart);
       console.log(sliced);
+      // var reversed = sliced.reverse(); <-- trying to reverse the array, but not working
+      // console.log(reversed);
     }
 
     var subcrawlLength = sliced.length; // <-- determines the # of stops between start and end. will use to determine how many ajax requests are required

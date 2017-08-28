@@ -71,3 +71,11 @@ img {
 		display: none;
 	}
 }
+
+
+@include respond-to('small') {
+    .wow{
+        animation-name: none !important;
+        visibility: visible !important;
+    }
+}
