@@ -6,9 +6,10 @@ $("#go").click(function (e) {
     e.preventDefault();
 });
 
+
 function goToByScroll(id) {
                 var toMe = $("." + id)
-                $("html,body").delay(400).animate({ scrollTop: toMe.offset().top }, 1100);
+                $("html,body").delay(600).animate({ scrollTop: toMe.offset().top }, 1100);
                 toMe.addClass("hightlightResult");
                 setTimeout(function () {
                     toMe.removeClass("hightlightResult", 1500);
@@ -91,7 +92,7 @@ subcrawlApp.displayRestaurants = function(restaurantData, stationName) { // <-- 
     //   `<img src="${busImg}" alt="${busName}">`
     //   );
     $(stationContainer).append(`
-      <div class="result">
+      <div class="result wow flipInX">
       <a href="${busUrl}" target=_blank><div class="restaurantImage" style="background-image: url(${busImg});"></div></a>
       <div class="restaurantContent">
       <h2><a href="${busUrl}" target=_blank>${busName}</a></h2>
@@ -100,12 +101,13 @@ subcrawlApp.displayRestaurants = function(restaurantData, stationName) { // <-- 
         <i class="fa fa-map-marker" aria-hidden="true"></i>${busAddress}<br>
         <i class="fa fa-phone" aria-hidden="true"></i>${busPhone}<br>
         <i class="fa fa-location-arrow" aria-hidden="true"></i>${busDistance.toFixed(1)} m away<br>
-        <i class="fa fa-globe" aria-hidden="true"></i><a href="${busUrl}" target=_blank>read more on yelp</a><br>
+        <i class="fa fa-globe" aria-hidden="true"></i><a href="${busUrl}" target=_blank>View on yelp</a><br>
       </p>
       </div>
       <a href="tel:${busPhone}" class="mobileShow"><div class="phoneButton">Call Us</div></a>
       </div>
       `);
+
 
 
     // $('.result').css("background-image", `url(${busImg})`);  
@@ -168,10 +170,22 @@ subcrawlApp.events = function() { // <-- a function that handles all events (ie 
         })
       });  
     console.log(`You are going through ${subcrawlLength} subway stops`)
-
-
   });
+
+  $('.checkboxSwitch').change(function(){ // <-- toggle TTC Station switch lines
+    console.log ('switched')
+    $('.bloorDanforthS').toggleClass("visibilityHidden");
+    $('.bloorDanforthE').toggleClass("visibilityHidden");
+    $('.bloorDanforthS').toggleClass("starting");
+    $('.bloorDanforthE').toggleClass("ending");
+    $('.yongeUniversityS').toggleClass("visibilityHidden");
+    $('.yongeUniversityE').toggleClass("visibilityHidden");
+    $('.yongeUniversityS').toggleClass("starting");
+    $('.yongeUniversityE').toggleClass("ending");
+  });// <-- End TTC Station switch lines
+
 }; // <-- END EVENTS FUNCTIONS
+
 
 //////////////////////////////////////////////////////////////////
 
@@ -223,39 +237,39 @@ var ttcStations = [
   {stationName: 'YorkMills', order: 28, latitude: '43.744995922', longitude: '-79.405330677'},
   {stationName: 'Sheppard', order: 29, latitude: '43.761674341', longitude: '-79.410987148'}, // <------- Duplicate
   {stationName: 'NorthYorkCentre', order: 30, latitude: '43.769241254', longitude: '-79.412911598'},
-  {stationName: 'Finch', order: 31, latitude: '43.781490124', longitude: '-79.415672606'}
+  {stationName: 'Finch', order: 31, latitude: '43.781490124', longitude: '-79.415672606'},
 
-  // {stationName: 'Kipling', latitude: '43.638020312', longitude: '-79.536388119'},
-  // {stationName: 'Islington', latitude: '43.645950081', longitude: '-79.523947976'},
-  // {stationName: 'Royal York', latitude: '43.648804442', longitude: '-79.511540512'},
-  // {stationName: 'Old Mill', latitude: '43.650576487', longitude: '-79.495224994'},
-  // {stationName: 'Jane', latitude: '43.650291274', longitude: '-79.484771783'},
-  // {stationName: 'Runnymede', latitude: '43.652166954', longitude: '-79.47649916'},
-  // {stationName: 'High Park', latitude: '43.654594232', longitude: '-79.465529622'},
-  // {stationName: 'Keele', latitude: '43.655700785', longitude: '-79.460315483'},
-  // {stationName: 'Dundas West', latitude: '43.657142061', longitude: '-79.452678426'},
-  // {stationName: 'Lansdowne', latitude: '43.659142924', longitude: '-79.442969912'},
-  // {stationName: 'Dufferin', latitude: '43.660665098', longitude: '-79.435955802'},
-  // {stationName: 'Ossington', latitude: '43.662663329', longitude: '-79.426156823'},
-  // {stationName: 'Christie', latitude: '43.664251781', longitude: '-79.418693027'},
-  // {stationName: 'Bathurst', latitude: '43.665991758', longitude: '-79.411582548'},
-  // {stationName: 'Spadina', latitude: '43.667647755', longitude: '-79.403758401'}, // <------- Duplicate
-  // {stationName: 'St George', latitude: '43.668311635', longitude: '-79.398643233'}, // <------- Duplicate
-  // {stationName: 'Bay', latitude: '43.670400288', longitude: '-79.390270289'},
-  // {stationName: 'Yonge', latitude: '43.670706062', longitude: '-79.385879814'}, // <------- Duplicate
-  // {stationName: 'Sherbourne', latitude: '43.672345084', longitude: '-79.376981614'},
-  // {stationName: 'Castle Frank', latitude: '43.674140625', longitude: '-79.368794155'},
-  // {stationName: 'Broadview', latitude: '43.676861715', longitude: '-79.358523845'},
-  // {stationName: 'Chester', latitude: '43.678377345', longitude: '-79.351416279'},
-  // {stationName: 'Pape', latitude: '43.67968493', longitude: '-79.345208527'},
-  // {stationName: 'Donlands', latitude: '43.681050077', longitude: '-79.337925572'},
-  // {stationName: 'Greenwood', latitude: '43.682703613', longitude: '-79.330276435'},
-  // {stationName: 'Coxwell', latitude: '43.68414917', longitude: '-79.323527235'},
-  // {stationName: 'Woodbine', latitude: '43.686352895', longitude: '-79.313357113'},
-  // {stationName: 'Main Street', latitude: '43.688916606', longitude: '-79.302728755'},
-  // {stationName: 'Victoria Park', latitude: '43.694320822', longitude: '-79.290318935'},
-  // {stationName: 'Warden', latitude: '43.712242009', longitude: '-79.278980371'},
-  // {stationName: 'Kennedy', latitude: '43.732118151', longitude: '-79.265698446'},
+  {stationName: 'Kipling', order: 32, latitude: '43.638020312', longitude: '-79.536388119'},
+  {stationName: 'Islington', order: 33, latitude: '43.645950081', longitude: '-79.523947976'},
+  {stationName: 'RoyalYork', order: 34, latitude: '43.648804442', longitude: '-79.511540512'},
+  {stationName: 'OldMill', order: 35, latitude: '43.650576487', longitude: '-79.495224994'},
+  {stationName: 'Jane', order: 36, latitude: '43.650291274', longitude: '-79.484771783'},
+  {stationName: 'Runnymede', order: 37, latitude: '43.652166954', longitude: '-79.47649916'},
+  {stationName: 'HighPark', order: 38, latitude: '43.654594232', longitude: '-79.465529622'},
+  {stationName: 'Keele', order: 39, latitude: '43.655700785', longitude: '-79.460315483'},
+  {stationName: 'DundasWest', order: 40, latitude: '43.657142061', longitude: '-79.452678426'},
+  {stationName: 'Lansdowne', order: 41, latitude: '43.659142924', longitude: '-79.442969912'},
+  {stationName: 'Dufferin', order: 42, latitude: '43.660665098', longitude: '-79.435955802'},
+  {stationName: 'Ossington', order: 43, latitude: '43.662663329', longitude: '-79.426156823'},
+  {stationName: 'Christie', order: 44, latitude: '43.664251781', longitude: '-79.418693027'},
+  {stationName: 'Bathurst', order: 45, latitude: '43.665991758', longitude: '-79.411582548'},
+  {stationName: 'Spadina', order: 46, latitude: '43.667647755', longitude: '-79.403758401'}, // <------- Duplicate
+  {stationName: 'StGeorge', order: 47, latitude: '43.668311635', longitude: '-79.398643233'}, // <------- Duplicate
+  {stationName: 'Bay', order: 48, latitude: '43.670400288', longitude: '-79.390270289'},
+  {stationName: 'Yonge', order: 49, latitude: '43.670706062', longitude: '-79.385879814'}, // <------- Duplicate
+  {stationName: 'Sherbourne', order: 50, latitude: '43.672345084', longitude: '-79.376981614'},
+  {stationName: 'CastleFrank', order: 51, latitude: '43.674140625', longitude: '-79.368794155'},
+  {stationName: 'Broadview', order: 52, latitude: '43.676861715', longitude: '-79.358523845'},
+  {stationName: 'Chester', order: 53, latitude: '43.678377345', longitude: '-79.351416279'},
+  {stationName: 'Pape', order: 54, latitude: '43.67968493', longitude: '-79.345208527'},
+  {stationName: 'Donlands', order: 55, latitude: '43.681050077', longitude: '-79.337925572'},
+  {stationName: 'Greenwood', order: 56, latitude: '43.682703613', longitude: '-79.330276435'},
+  {stationName: 'Coxwell', order: 57, latitude: '43.68414917', longitude: '-79.323527235'},
+  {stationName: 'Woodbine', order: 58, latitude: '43.686352895', longitude: '-79.313357113'},
+  {stationName: 'MainStreet',  order: 59,latitude: '43.688916606', longitude: '-79.302728755'},
+  {stationName: 'VictoriaPark', order: 60, latitude: '43.694320822', longitude: '-79.290318935'},
+  {stationName: 'Warden', order: 61, latitude: '43.712242009', longitude: '-79.278980371'},
+  {stationName: 'Kennedy', order: 62, latitude: '43.732118151', longitude: '-79.265698446'}
 
   // {stationName: 'Sheppard-Yonge', latitude: '43.761618114', longitude: '-79.410988637'}, // <------- Duplicate
   // {stationName: 'Bayview', latitude: '43.767252223', longitude: '-79.387398646'},

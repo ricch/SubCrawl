@@ -30,6 +30,9 @@
 		font-family: $primaryFont;
 		font-weight: 300;
 		transition: .3s all;
+		// appearance:none;
+		border-radius: 0;
+		position: relative;
 		@include respond-to('small') {
 			font-size: 1.3rem;
 			padding: 8px;
@@ -38,6 +41,12 @@
 		&:hover {
 			background-color: #eee;
 		}
+	}
+	option {
+		text-align: center;
+	}
+	.visibilityHidden {
+		display: none;
 	}
 	.startingStation {
 		text-align: center;

@@ -1,5 +1,6 @@
 header {
 	position: relative;
+	border-top: 8px solid $primaryColor;
 	.flex {
 		flex-direction: column;
 		justify-content: center;
@@ -8,9 +9,9 @@ header {
 	h1 {
 		text-align: center;
 		.logo {
-			max-width: 25%;
+			max-width: 40%;
 			@include respond-to('medium') {
-				max-width: 30%;
+				max-width: 50%;
 			}
 		}
 	}

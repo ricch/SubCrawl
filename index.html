@@ -9,7 +9,12 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script src="scripts/scripts.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<script src="scripts/wow.min.js"></script>
+              <script>
+              new WOW().init();
+              </script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link type="image/png" href="images/favicon.png" rel="icon">
 
 </head>
 <body>
@@ -25,17 +30,26 @@
 	</nav>
 	<div class="flex">
 		<h1>
-			<img src="images/logoSubcrawl.png" alt="Subcrawl App" class="logo">
+			<img src="images/logoSubcrawl2.png" alt="Subcrawl App" class="logo">
 		</h1>
 
 		<main class="stationSelector">
 			<div class="wrapper">
 				<form class="subway-form">
+					<div class="switchTTCLine flex">
+						<!-- Rounded switch -->
+						<div class="differentSubwayLines">Yonge/University Line</div>
+						<div><label class="switch">
+							<input type="checkbox" class="checkboxSwitch">
+							<span class="slider round"></span>
+						</label></div>
+						<div class="differentSubwayLines">Bloor/Danforth Line</div>
+					</div>
 					<div class="flex">
 						<div class="startingStation">
 							<i class="fa fa-flag-o fa-5x" aria-hidden="true"></i>
 							<h2>Enter STARTING station:</h2>
-								<select class="starting">
+								<select class="starting yongeUniversityS">
 									<option value="Downsview">Downsview</option>
 									<option value="Wilson">Wilson</option>
 									<option value="Yorkdale">Yorkdale</option>
@@ -69,18 +83,51 @@
 									<option value="NorthYorkCentre">North York Centre</option>
 									<option value="Finch">Finch</option>
 								</select>
-								<!-- <input type="submit" value="Submit"> -->
+								<select class="bloorDanforthS visibilityHidden">
+									<option value="Kipling">Kipling</option>
+									<option value="Islington">Islington</option>
+									<option value="RoyalYork">Royal York</option>
+									<option value="OldMill">Old Mill</option>
+									<option value="Jane">Jane</option>
+									<option value="Runnymede">Runnymede</option>
+									<option value="HighPark">High Park</option>
+									<option value="Keele">Keele</option>
+									<option value="DundasWest">Dundas West</option>
+									<option value="Lansdowne">Lansdowne</option>
+									<option value="Dufferin">Dufferin</option>
+									<option value="Christie">Christie</option>
+									<option value="Bathurst">Bathurst</option>
+									<option value="Spadina">Spadina</option>
+									<option value="StGeorge">St George</option>
+									<option value="Bay">Bay</option>
+									<option value="Yonge">Yonge</option>
+									<option value="Sherbourne">Sherbourne</option>
+									<option value="CastleFrank">Castle Frank</option>
+									<option value="Broadview">Broadview</option>
+									<option value="Chester">Chester</option>
+									<option value="Pape">Pape</option>
+									<option value="Donlands">Donlands</option>
+									<option value="Greenwood">Greenwood</option>
+									<option value="Coxwell">Coxwell</option>
+									<option value="Woodbine">Woodbine</option>
+									<option value="MainStreet">Main Street</option>
+									<option value="VictoriaPark">Victoria Park</option>
+									<option value="Warden">Warden</option>
+									<option value="Kennedy">Kennedy</option>
+								</select>
+
 						</div>
 
 						<div class="mobileHide">	
-							<img src="images/subwayLineYellow.png" alt="">
+							<img src="images/subwayLineYellow.png" alt="" class="yongeUniversityS">
+							<img src="images/subwayLineGreen.png" alt="" class="bloorDanforthS visibilityHidden">
 						</div>
 
 						<div class="endingStation">
 							<i class="fa fa-flag-checkered fa-5x" aria-hidden="true"></i>
 							<h2>Enter ENDING station:</h2>
 
-								<select class="ending">
+								<select class="ending yongeUniversityE">
 									<option value="Downsview">Downsview</option>
 									<option value="Wilson">Wilson</option>
 									<option value="Yorkdale">Yorkdale</option>
@@ -114,8 +161,41 @@
 									<option value="NorthYorkCentre">North York Centre</option>
 									<option value="Finch">Finch</option>
 								</select>
+								<select class="bloorDanforthE visibilityHidden">
+									<option value="Kipling">Kipling</option>
+									<option value="Islington">Islington</option>
+									<option value="RoyalYork">Royal York</option>
+									<option value="OldMill">Old Mill</option>
+									<option value="Jane">Jane</option>
+									<option value="Runnymede">Runnymede</option>
+									<option value="HighPark">High Park</option>
+									<option value="Keele">Keele</option>
+									<option value="DundasWest">Dundas West</option>
+									<option value="Lansdowne">Lansdowne</option>
+									<option value="Dufferin">Dufferin</option>
+									<option value="Christie">Christie</option>
+									<option value="Bathurst">Bathurst</option>
+									<option value="Spadina">Spadina</option>
+									<option value="StGeorge">St George</option>
+									<option value="Bay">Bay</option>
+									<option value="Yonge">Yonge</option>
+									<option value="Sherbourne">Sherbourne</option>
+									<option value="CastleFrank">Castle Frank</option>
+									<option value="Broadview">Broadview</option>
+									<option value="Chester">Chester</option>
+									<option value="Pape">Pape</option>
+									<option value="Donlands">Donlands</option>
+									<option value="Greenwood">Greenwood</option>
+									<option value="Coxwell">Coxwell</option>
+									<option value="Woodbine">Woodbine</option>
+									<option value="MainStreet">Main Street</option>
+									<option value="VictoriaPark">Victoria Park</option>
+									<option value="Warden">Warden</option>
+									<option value="Kennedy">Kennedy</option>
+								</select>
 						</div>
 					</div>
+					
 					<div class="submitBtn">
 						<input type="submit" value="Submit" id="go">
 					</div>
