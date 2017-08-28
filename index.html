@@ -10,6 +10,7 @@
 	<script src="scripts/scripts.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
 
@@ -24,7 +25,7 @@
 	</nav>
 	<div class="flex">
 		<h1>
-			<img src="images/logoSubcrawl.png" alt="Subcrawl App animated">
+			<img src="images/logoSubcrawl.png" alt="Subcrawl App" class="logo">
 		</h1>
 
 		<main class="stationSelector">
@@ -116,7 +117,7 @@
 						</div>
 					</div>
 					<div class="submitBtn">
-						<input type="submit" value="Submit">
+						<input type="submit" value="Submit" id="go">
 					</div>
 				</form>
 			</div>
@@ -169,7 +170,15 @@
 </section>
 
 <footer>
-	
+	<div class="wrapper flex">
+		<div class="footerLeft">
+			<p><a href="https://www.yelp.com/developers/documentation/v3" target="_blank"><i class="fa fa-yelp" aria-hidden="true"></i> Powered by Yelp Fusion API</a></p>
+		</div>
+		<div class="footerRight">
+			<p>Created by <a href="http://www.richardchin.ca">Richard Chin</a> - HackerYou 2017</p>
+		</div>
+		
+	</div>
 </footer>
 		
 </body>

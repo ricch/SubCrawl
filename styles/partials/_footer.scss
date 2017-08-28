@@ -1,0 +1,29 @@
+footer {
+	background-color:#222;
+	color: #eee;
+	border-top: 4px solid $primaryColor;
+	padding: 10px;
+	a {
+		&:hover {
+			color: lighten($primaryColor, 10);
+		}
+	}
+	.flex {
+		justify-content: space-between;
+		@include respond-to('small') {
+			flex-direction: column;
+			text-align: center;
+		}
+	}
+	p {
+		@include respond-to('small') {
+			margin: 0;
+		}
+	}
+	.footerLeft {
+
+	}
+	.footerRight {
+
+	}
+}

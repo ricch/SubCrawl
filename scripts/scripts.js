@@ -1,6 +1,21 @@
 var subcrawlApp = {};
 subcrawlApp.allStops = []; // <-- Empty array that will catch all of our promised API data in ORDER
 
+$("#go").click(function (e) {
+    goToByScroll("results");
+    e.preventDefault();
+});
+
+function goToByScroll(id) {
+                var toMe = $("." + id)
+                $("html,body").delay(400).animate({ scrollTop: toMe.offset().top }, 1100);
+                toMe.addClass("hightlightResult");
+                setTimeout(function () {
+                    toMe.removeClass("hightlightResult", 1500);
+                }, 500);
+            }
+
+
 subcrawlApp.getYelpData = function(lat,long) { // <-- pushing in two parameters to determine a dynamic ajax call for yelp requests
       
     return $.ajax({
@@ -100,10 +115,15 @@ subcrawlApp.displayRestaurants = function(restaurantData, stationName) { // <-- 
 
 //////////////////////////////////////////////////////////////////
 
+
+
 subcrawlApp.events = function() { // <-- a function that handles all events (ie click, submit, etc)
   
   $('.subway-form').on('submit', function(e) { // <-- when the 'submit' button is clicked ... do these steps
     e.preventDefault(); // <-- resets the forms
+    goToByScroll("results");
+
+
     $('.content').empty();
     var selectedStartStn = $('.starting').val();
     var selectedEndStn = $('.ending').val();

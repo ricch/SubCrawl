@@ -5,14 +5,17 @@ header {
 		justify-content: center;
 		height: calc(100%);
 	}
-	h1 {text-align: center;}
-	background-image: url(../images/bgAlcohol.png);
-	height: 100vh;
-	img {
-		@include respond-to('medium') {
-			max-width: 30%;
+	h1 {
+		text-align: center;
+		.logo {
+			max-width: 25%;
+			@include respond-to('medium') {
+				max-width: 30%;
+			}
 		}
 	}
+	background-image: url(../images/bgAlcohol.png);
+	height: 100vh;
 	.animated {
 	}
 }
