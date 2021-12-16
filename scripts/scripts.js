@@ -20,7 +20,7 @@ function goToByScroll(id) {
 subcrawlApp.getYelpData = function(lat,long) { // <-- pushing in two parameters to determine a dynamic ajax call for yelp requests
       
     return $.ajax({
-        url: 'http://proxy.hackeryou.com',
+        url: 'https://proxy.hackeryou.com',
         dataType: 'json',
         method:'GET',
         data: {
